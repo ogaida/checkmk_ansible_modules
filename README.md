@@ -12,7 +12,7 @@ $ sudo gem install ansible_module
 
 ```
 cd /<pathToGitClone>
-git clone https://github.com/ogaida/cmk
+git clone https://github.com/ogaida/checkmk_ansible_modules
 ```
 
 3. link to the modules
@@ -21,5 +21,5 @@ git clone https://github.com/ogaida/cmk
 
 ```
 [defaults]
-library = /<pathToGitClone>/cmk/modules
+library = /<pathToGitClone>/checkmk_ansible_modules/modules
 ```

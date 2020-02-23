@@ -1,4 +1,4 @@
-# cmk
+# checkmk_ansible_modules
 
 ## requirements
 

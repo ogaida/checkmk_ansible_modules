@@ -1,0 +1,22 @@
+---
+# ansible-playbook cmk_add_user.yml -e "user=$cmk_user password=$cmk_pass url=$cmk_url"
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: User anlegen
+    cmk_user:
+      user: "{{ user }}"
+      password: "{{ password }}"
+      url: "{{ url }}"
+      state: present
+      #set_password_if_exist: yes
+      #list: yes
+      data:
+        users:
+          axel:
+            alias: mein Bruder
+            password: myStrongPassword
+    register: out
+  - name: debug
+    debug:
+      var: out

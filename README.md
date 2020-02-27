@@ -2,17 +2,22 @@
 
 ## requirements
 
-1. Ruby must be installed and the ruby gem ansible_module Version >= 0.9.4 (Tsutomu Kuroda).
+1. clone this repository
 
 ```
-$ sudo gem install ansible_module
-```
-
-2. clone this repository
-
-```
-cd /<pathToGitClone>
 git clone https://github.com/ogaida/checkmk_ansible_modules
+```
+
+2. Ruby must be installed and the ruby gem ansible_module Version >= 0.9.4 (Tsutomu Kuroda).
+
+```
+$ sudo gem install ansible_module httparty
+```
+
+if not released yet, you could use the `ansible_module-0.9.4.gem` from this repository:
+
+```
+$ sudo gem install ./checkmk_ansible_modules/ansible_module-0.9.4.gem httparty
 ```
 
 3. link to the modules
@@ -21,5 +26,5 @@ git clone https://github.com/ogaida/checkmk_ansible_modules
 
 ```
 [defaults]
-library = /<pathToGitClone>/checkmk_ansible_modules/modules
+library = /<pathToGitClone_of_checkmk_ansible_modules>/modules
 ```

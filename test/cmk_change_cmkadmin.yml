@@ -1,0 +1,31 @@
+---
+# ansible-playbook cmk_change_cmkadmin.yml -e "user=$cmk_user password=$cmk_pass url=$cmk_url"
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: User anlegen
+    cmk_user:
+      user: "{{ user }}"
+      password: "{{ password }}"
+      url: "{{ url }}"
+      state: present
+      #set_password_if_exist: yes
+      data:
+        users:
+          cmkadmin:
+            alias: "Check_MK Automation - used for calling web services"
+            password: "Vati kann ansible gut"
+    register: out
+  - name: debug
+    debug:
+      var: out
+  - name: Changes aktivieren
+    cmk_changes:
+      user: "{{ user }}"
+      password: "{{ password }}"
+      url: "{{ url }}"
+      allow_foreign_changes: yes
+    register: out
+  - name: debug
+    debug:
+      var: out

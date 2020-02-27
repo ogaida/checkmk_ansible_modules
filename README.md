@@ -43,12 +43,12 @@ library = /<pathToGitClone_of_checkmk_ansible_modules>/modules
       password: "{{ password }}"
       url: "{{ url }}"
       state: present
-      #set_password_if_exist: yes
+      set_password_if_exist: yes
       data:
         users:
           cmkadmin:
             alias: "Check_MK Automation - used for calling web services"
-            password: "Vati kann ansible"
+            password: "Vati mag ansible"
     register: out
   - name: debug
     debug:

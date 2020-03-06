@@ -1,7 +1,7 @@
 ---
 # ansible-playbook cmk_list_users_prod.yml -e "user=$cmk_user password=$cmk_pass url=$cmk_url"
 # ansible localhost -m cmk_user -a "user=$cmk_user password=$cmk_pass url=$cmk_url list=yes" --tree output/cmk
-# jq '.["msg"]["GAIDA"]' output/cmk/localhost
+# jq '.["msg"]["Schneider"]' output/cmk/localhost
 - hosts: localhost
   gather_facts: no
   tasks:

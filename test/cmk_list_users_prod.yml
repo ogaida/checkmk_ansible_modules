@@ -1,6 +1,6 @@
 ---
 # ansible-playbook cmk_list_users_prod.yml -e "user=$cmk_user password=$cmk_pass url=$cmk_url"
-# ansible localhost -m cmk_user -a "user=$cmk_user password=$cmk_pass url=$cmk_url list=yes" --tree output/cmk
+# ad-hoc-version: ansible localhost -m cmk_user -a "user=$cmk_user password=$cmk_pass url=$cmk_url list=yes" --tree output/cmk
 # jq '.["msg"]["Schneider"]' output/cmk/localhost
 - hosts: localhost
   gather_facts: no
@@ -10,14 +10,7 @@
       user: "{{ user }}"
       password: "{{ password }}"
       url: "{{ url }}"
-      #state: present
-      #set_password_if_exist: yes
       list: yes
-      #data:
-      #  users:
-      #    axel:
-      #      alias: mein Bruder
-      #      password: myStrongPassword
     register: out
   - name: debug
     debug:

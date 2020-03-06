@@ -23,13 +23,36 @@ $ sudo gem install ./checkmk_ansible_modules/ansible_module-0.9.4.gem httparty
 library = /<pathToGitClone_of_checkmk_ansible_modules>/modules
 ```
 
+## Envvars
+
+you may set some envvars for checkmk connection and call ansible with the `-e` option:
+
+mycheckenv:
+
+```
+export cmk_user=schneider
+epxort cmk_pass=password123
+epxort cmk_url=http://172.17.0.1:8080/cmk
+```
+
+load in the active shell:
+
+```
+source mycheckenv
+```
+
+the ansible option then:
+
+```
+user=$cmk_user password=$cmk_pass url=$cmk_url
+```
+
 ## Playbook
 
 see the test folder
 
 ```yaml
 ---
-# ansible-playbook cmk_change_cmkadmin.yml -e "user=$cmk_user password=$cmk_pass url=$cmk_url"
 - hosts: localhost
   gather_facts: no
   tasks:

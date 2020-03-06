@@ -44,7 +44,7 @@ source mycheckenv
 the ansible option then:
 
 ```
-user=$cmk_user password=$cmk_pass url=$cmk_url
+-e "user=$cmk_user password=$cmk_pass url=$cmk_url"
 ```
 
 ## Playbook
